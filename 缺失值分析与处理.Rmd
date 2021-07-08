@@ -1,0 +1,33 @@
+---
+title: "数据准备"
+author: "冯裕祺"
+date: "2021/7/8"
+output: html_document
+---
+
+
+# 缺失值分析与处理
+
+```{r}
+library(VIM)
+data(sleep,package = "VIM")
+```
+
+```{r}
+dim(sleep)#查看数据的维度
+complete.cases(sleep)
+sum(complete.cases(sleep))#返回没有缺失值的样本的逻辑值，如果这个样本没有缺失的值则为true，使用sum函数整体没有缺失的样本数
+```
+
+```{r}
+head(is.na(sleep))
+```
+
+```{r}
+sum(is.na(sleep[1:15,]))#计算出sleep数据中前15个有NA的数量
+```
+
+```{r,fig.cap="数据缺失可视化"}
+aggr(sleep)#缺失数据可视化
+```
+
